@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brainnovative - STEM & Innovation Club</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #2563eb, #1d4ed8, #1e40af);
+            color: white;
+            padding: 64px 0;
+            text-align: center;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+        }
+
+        .header-icon {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            padding: 16px;
+            margin-right: 16px;
+            backdrop-filter: blur(4px);
+            width: 96px;
+            height: 96px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-image {
+            width: 130px;
+            height: 125px;
+            border-radius: 0px;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .header h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            letter-spacing: -0.025em;
+        }
+
+        .header p {
+            font-size: 1.25rem;
+            color: #bfdbfe;
+            margin-top: 8px;
+        }
+
+        /* Intro Section */
+        .intro {
+            background: linear-gradient(to bottom, #eff6ff, white);
+            padding: 64px 0;
+            text-align: center;
+        }
+
+        .intro h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+            color: #111827;
+        }
+
+        .intro p {
+            font-size: 1.125rem;
+            color: #374151;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Activities Section */
+        .activities {
+            padding: 64px 0;
+            background: white;
+        }
+
+        .activities h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 48px;
+            color: #111827;
+        }
+
+        .activities-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .activity-card {
+            background: #f8fafc;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 20px 24px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .activity-card:hover {
+            background: white;
+            border-color: #3b82f6;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15);
+        }
+
+        .activity-icon {
+            color: #3b82f6;
+            flex-shrink: 0;
+            width: 24px;
+            height: 24px;
+        }
+
+        .activity-content {
+            flex: 1;
+        }
+
+        .activity-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 4px;
+        }
+
+        .activity-description {
+            color: #64748b;
+            font-size: 0.875rem;
+            line-height: 1.4;
+        }
+
+        /* President Section */
+        .president {
+            padding: 64px 0;
+            background: #f9fafb;
+        }
+
+        .president h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 48px;
+            color: #111827;
+        }
+
+        .president-card {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #e5e7eb;
+        }
+
+        .president-content {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .president-image {
+            background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+            padding: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .president-avatar {
+            width: 128px;
+            height: 128px;
+            background: #d1d5db;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .president-info {
+            padding: 32px;
+        }
+
+        .president-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #111827;
+        }
+
+        .president-badge {
+            background: #f3f4f6;
+            color: #374151;
+            padding: 4px 12px;
+            border-radius: 16px;
+            font-size: 0.875rem;
+            display: inline-block;
+            margin-bottom: 16px;
+        }
+
+        .president-bio {
+            color: #374151;
+        }
+
+        /* Objectives Section */
+        .objectives {
+            padding: 64px 0;
+            background: white;
+        }
+
+        .objectives h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 48px;
+            color: #111827;
+        }
+
+        .objectives-card {
+            max-width: 768px;
+            margin: 0 auto;
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 32px;
+        }
+
+        .objectives-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+
+        .objectives-icon {
+            color: #2563eb;
+            margin-right: 8px;
+        }
+
+        .objectives-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #111827;
+        }
+
+        .objectives-list {
+            list-style: none;
+        }
+
+        .objectives-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 16px;
+        }
+
+        .objectives-bullet {
+            width: 24px;
+            height: 24px;
+            background: #dbeafe;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 12px;
+            margin-top: 2px;
+            flex-shrink: 0;
+        }
+
+        .objectives-bullet::after {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: #2563eb;
+            border-radius: 50%;
+        }
+
+        /* Events Section */
+        .events {
+            padding: 64px 0;
+            background: #f9fafb;
+        }
+
+        .events h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 48px;
+            color: #111827;
+        }
+
+        .events-card {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #fef3c7;
+            border: 1px solid #fed7aa;
+            border-radius: 8px;
+            padding: 24px;
+            text-align: center;
+        }
+
+        .events-quote {
+            color: #374151;
+            font-style: italic;
+        }
+
+        /* Footer */
+        .footer {
+            background: #111827;
+            color: white;
+            padding: 48px 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .footer-icon {
+            color: #60a5fa;
+        }
+
+        .footer-name {
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+
+        .footer-separator {
+            width: 96px;
+            height: 1px;
+            background: #374151;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 16px;
+        }
+
+        .social-btn {
+            background: transparent;
+            border: none;
+            color: #d1d5db;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: color 0.3s ease;
+        }
+
+        .social-btn:hover {
+            color: white;
+        }
+
+        .footer-copyright {
+            color: #9ca3af;
+            font-size: 0.875rem;
+        }
+
+        /* Icons (SVG) */
+        .icon {
+            width: 24px;
+            height: 24px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .icon-lg {
+            width: 48px;
+            height: 48px;
+        }
+
+        .icon-xl {
+            width: 64px;
+            height: 64px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .president-content {
+                flex-direction: column;
+            }
+            
+            .activities-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="header-icon">
+                    <img src="Logo.png" alt="Brainnovative Logo" class="logo-image">
+                </div>
+                <div>
+                    <h1>Brainnovative</h1>
+                    <p>STEM & Innovation Club</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Intro Section -->
+    <section class="intro">
+        <div class="container">
+            <h2>Welcome to Brainnovation</h2>
+            <p>
+                Welcome to Brainnovative, where curious minds converge to explore the frontiers of science, 
+                technology, engineering, and mathematics. We're a vibrant community of innovators, thinkers, 
+                and problem-solvers dedicated to pushing the boundaries of what's possible through collaborative 
+                learning and hands-on experimentation.
+            </p>
+        </div>
+    </section>
+
+    <!-- Activities Section -->
+    <section class="activities">
+        <div class="container">
+            <h2>Our Activities</h2>
+            <div class="activities-grid">
+                <div class="activity-card">
+                    <svg class="activity-icon" viewBox="0 0 24 24">
+                        <path d="M9 12l2 2 4-4"/>
+                        <circle cx="12" cy="12" r="10"/>
+                    </svg>
+                    <div class="activity-content">
+                        <h3 class="activity-title">Innovation Workshops</h3>
+                        <p class="activity-description">Hands-on sessions exploring cutting-edge technologies</p>
+                    </div>
+                </div>
+                
+                <div class="activity-card">
+                    <svg class="activity-icon" viewBox="0 0 24 24">
+                        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+                        <circle cx="9" cy="7" r="4"/>
+                        <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                    </svg>
+                    <div class="activity-content">
+                        <h3 class="activity-title">Collaborative Projects</h3>
+                        <p class="activity-description">Team-based problem-solving initiatives</p>
+                    </div>
+                </div>
+                
+                <div class="activity-card">
+                    <svg class="activity-icon" viewBox="0 0 24 24">
+                        <path d="M9.5 2A2.5 2.5 0 0 0 7 4.5v15A2.5 2.5 0 0 0 9.5 22h5a2.5 2.5 0 0 0 2.5-2.5v-15A2.5 2.5 0 0 0 14.5 2h-5z"/>
+                        <path d="M2 12h5"/>
+                        <path d="M17 12h5"/>
+                        <path d="M12 7v10"/>
+                    </svg>
+                    <div class="activity-content">
+                        <h3 class="activity-title">Research Symposiums</h3>
+                        <p class="activity-description">Presentations of student research and discoveries</p>
+                    </div>
+                </div>
+                
+                <div class="activity-card">
+                    <svg class="activity-icon" viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="10"/>
+                        <circle cx="12" cy="12" r="6"/>
+                        <circle cx="12" cy="12" r="2"/>
+                    </svg>
+                    <div class="activity-content">
+                        <h3 class="activity-title">Tech Challenges</h3>
+                        <p class="activity-description">Competitive contests and quizes.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- President Section -->
+    <section class="president">
+        <div class="container">
+            <h2>Club President</h2>
+            <div class="president-card">
+                <div class="president-content">
+                    <div class="president-info">
+                        <h3 class="president-name">Lamzili Mohammed Saleh</h3>
+                        <span class="president-badge">Club President</span>
+                        <p class="president-bio">
+                            A passionate advocate for STEM education with a background in mathematics and science. 
+                            Saleh believes in fostering an inclusive environment where every member can contribute
+                            to groundbreaking discoveries and technological advancement.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Objectives Section -->
+    <section class="objectives">
+        <div class="container">
+            <h2>2025 Objectives</h2>
+            <div class="objectives-card">
+                <div class="objectives-header">
+                    <svg class="icon objectives-icon" viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="10"/>
+                        <circle cx="12" cy="12" r="6"/>
+                        <circle cx="12" cy="12" r="2"/>
+                    </svg>
+                    <h3 class="objectives-title">Our Vision for 2025</h3>
+                </div>
+                <ul class="objectives-list">
+                    <li class="objectives-item">
+                        <div class="objectives-bullet"></div>
+                        <span>Expand our membership to include diverse STEM disciplines</span>
+                    </li>
+                    <li class="objectives-item">
+                        <div class="objectives-bullet"></div>
+                        <span>Launch major collaborative research projects</span>
+                    </li>
+                    <li class="objectives-item">
+                        <div class="objectives-bullet"></div>
+                        <span>Establish partnerships with local tech companies and universities</span>
+                    </li>
+                    <li class="objectives-item">
+                        <div class="objectives-bullet"></div>
+                        <span>Host our first annual innovation showcase</span>
+                    </li>
+                    <li class="objectives-item">
+                        <div class="objectives-bullet"></div>
+                        <span>Develop mentorship programs connecting students with industry professionals</span>
+                    </li>
+                    <li class="objectives-item">
+                        <div class="objectives-bullet"></div>
+                        <span>Create open-source educational resources for the broader community</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section class="events">
+        <div class="container">
+            <h2>Annual Event Catalog</h2>
+            <div class="events-card">
+                <blockquote class="events-quote">
+                    "As of now, we have not outlined specific objectives for this year's events."
+                </blockquote>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="footer-name">Brainnovative</span>
+                </div>
+                <div class="footer-separator"></div>
+                
+                <div class="footer-social">
+                    <button class="social-btn" onclick="openSocial('instagram')">
+                        <svg class="icon" viewBox="0 0 24 24">
+                            <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                            <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
+                        </svg>
+                        Instagram
+                    </button>
+                    <button class="social-btn" onclick="openSocial('youtube')">
+                        <svg class="icon" viewBox="0 0 24 24">
+                            <path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"/>
+                            <path d="M10 15V9l5 3z"/>
+                        </svg>
+                        YouTube
+                    </button>
+                </div>
+                
+                <p class="footer-copyright">
+                    © 2025 Brainnovative STEM & Innovation Club. Inspiring innovation through collaboration.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function openSocial(platform) {
+            const urls = {
+                instagram: 'https://www.instagram.com/brain.novate/',
+                youtube: 'https://www.youtube.com/@brain.novate'
+            };
+            
+            if (urls[platform]) {
+                window.open(urls[platform], '_blank');
+            }
+        }
+
+        // Smooth scroll for better UX
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.activity-card');
+            
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+            
+            cards.forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(card);
+            });
+        });
+    </script>
+</body>
+</html>
